@@ -4,7 +4,7 @@ from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.chains.summarize import load_summarize_chain
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 from transformers import pipeline
-import langchain_community
+from langchain_community.document_loaders import DirectoryLoader
 import torch
 import base64
 
@@ -82,5 +82,6 @@ def main():
 if __name__ == "__main__":
     main()
     
+
 
         
