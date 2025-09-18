@@ -67,9 +67,10 @@ def main():
     if uploaded_file is not None:
         if st.button("Summarize"):
             col1, col2 = st.columns(2)
-            filepath = "data/"+uploaded_file.name
-            with open(filepath, 'wb')as temp_file:
-                temp_file.write(uploaded_file.read())
+             # ✅ FIX: Save uploaded file safely
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+                tmp_file.write(uploaded_file.getbuffer())
+                filepath = tmp_file.name
 
             with col1:
                 st.info("Uploaded PDF File")
