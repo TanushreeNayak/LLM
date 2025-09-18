@@ -4,7 +4,7 @@ from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.chains.summarize import load_summarize_chain
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 from transformers import pipeline
-from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 import torch
 import base64
 
@@ -63,25 +63,28 @@ def main():
 
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
 
+    import tempfile
+
     if uploaded_file is not None:
         if st.button("Summarize"):
             col1, col2 = st.columns(2)
-            filepath = "data/"+uploaded_file.name
-            with open(filepath, 'wb')as temp_file:
-                temp_file.write(uploaded_file.read())
+
+        # Save file to a temporary path
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+                tmp_file.write(uploaded_file.getbuffer())
+                filepath = tmp_file.name  # <-- use this path below
 
             with col1:
-                st.info("Uploaded PDF File")
-                pdf_viewer = display_pdf(filepath)
-            with col2:
-                st.info("Generating Summary...")
-                
-                summary = llm_pipeline(filepath)
-                st.success(summary)
+                st.success(f"File saved at: {filepath}")
+
+        # Now load it with PyPDFLoader
+            from langchain_community.document_loaders import PyPDFLoader
+            loader = PyPDFLoader(filepath)
+            docs = loader.load()
+
 
 if __name__ == "__main__":
     main()
     
-
 
         
