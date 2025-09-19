@@ -56,7 +56,7 @@ def display_pdf(file):
        
 
 # Streamlit app
-st.set_page_config(layout = 'wide)
+st.set_page_config(layout = 'wide')
 st.theme(primaryColor="#af1749",
 backgroundColor="#285a9c",
 secondaryBackgroundColor="#8ada64",
@@ -91,6 +91,7 @@ if __name__ == "__main__":
 
 
         
+
 
 
 
