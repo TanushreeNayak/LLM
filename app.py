@@ -54,6 +54,28 @@ def display_pdf(file):
     # displaying file
     st.markdown(pdf_display, unsafe_allow_html=True)
 
+    st.markdown(
+        <style>
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            }
+            button:hover {
+            background-color: #45a049; /* Darker green */
+            }
+            </style>
+            unsafe_allow_html=True
+            )
+
 # Streamlit app
 st.set_page_config(layout = 'wide')
 
@@ -86,4 +108,5 @@ if __name__ == "__main__":
 
 
         
+
 
