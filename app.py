@@ -64,10 +64,10 @@ def display_pdf(file):
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
+            font-size: 16;
+            margin: 4 2;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 8;
             }
             button:hover {
             background-color: #45a049; /* Darker green */
@@ -108,6 +108,7 @@ if __name__ == "__main__":
 
 
         
+
 
 
 
