@@ -56,7 +56,10 @@ def display_pdf(file):
        
 
 # Streamlit app
-st.set_page_config(layout = 'wide')
+st.set_page_config(layout = 'wide', primaryColor="#af1749",
+backgroundColor="#285a9c",
+secondaryBackgroundColor="#8ada64",
+textColor="#e0ddca")
 
 def main():
     st.title("Demystifying Legal Docs")
@@ -87,6 +90,7 @@ if __name__ == "__main__":
 
 
         
+
 
 
 
