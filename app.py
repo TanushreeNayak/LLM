@@ -48,33 +48,22 @@ def llm_pipeline(filepath):
 def display_pdf(file):
     with open(file, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    
+        
+    st.markdown(
+        <style>
+        body {
+            background-color: #f0f8ff;
+                }
+        iframe {
+            border: none;
+            }
+        </style>
+            ,unsafe_allow_html=True)
     # embedding pdf in html
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
     # displaying file
     st.markdown(pdf_display, unsafe_allow_html=True)
-
-    st.markdown(
-        <style>
-        button {
-            background-color: #4CAF50; /* Green */
-            color: white;
-            border: none;
-            padding: 10 20;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16;
-            margin: 4 2;
-            cursor: pointer;
-            border-radius: 8;
-            }
-            button:hover {
-            background-color: #45a049; /* Darker green */
-            }
-            </style>
-            unsafe_allow_html=True
-            )
+       
 
 # Streamlit app
 st.set_page_config(layout = 'wide')
@@ -108,6 +97,7 @@ if __name__ == "__main__":
 
 
         
+
 
 
 
