@@ -48,23 +48,18 @@ def llm_pipeline(filepath):
 def display_pdf(file):
     with open(file, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
+    
     # embedding pdf in html
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf" background-color: #ffffff;></iframe>'
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
     # displaying file
     st.markdown(pdf_display, unsafe_allow_html=True)
-       
 
 # Streamlit app
 st.set_page_config(layout = 'wide')
-st.theme(primaryColor="#af1749",
-backgroundColor="#285a9c",
-secondaryBackgroundColor="#8ada64",
-textColor="#e0ddca")
 
 def main():
     st.title("Demystifying Legal Docs")
-    st.write("Hello, BrightStar⭐ \n Upload a PDF file and get a concise summary of its content.")
+    st.write("Hello, BrtightStar⭐ Upload a PDF file and get a concise summary of its content.")
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
     
     import tempfile
@@ -72,7 +67,7 @@ def main():
     if uploaded_file is not None:
         if st.button("Summarize"):
             col1, col2 = st.columns(2)
-             # Save the uploaded file safely
+            #FIX: Save uploaded file safely
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
                 tmp_file.write(uploaded_file.getbuffer())
                 filepath = tmp_file.name
@@ -91,13 +86,3 @@ if __name__ == "__main__":
 
 
         
-
-
-
-
-
-
-
-
-
-
