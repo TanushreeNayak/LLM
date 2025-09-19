@@ -1,6 +1,12 @@
-st.set_page_config(layout = 'wide'
-)
-st.set_page_config(primaryColor="#af1749",
-backgroundColor="#285a9c",
-secondaryBackgroundColor="#8ada64",
-textColor="#e0ddca")
+[server]
+headless = true
+port = 8501
+enableCORS = false
+
+
+[theme]
+primaryColor = "#4caf50ff"
+backgroundColor = "#c9afe0ff"
+secondaryBackgroundColor = "#1a87b5ff"
+textColor = "#000000"
+font = "sans serif"
