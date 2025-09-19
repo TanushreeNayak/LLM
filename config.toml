@@ -1,0 +1,6 @@
+st.set_page_config(layout = 'wide'
+)
+st.set_page_config(primaryColor="#af1749",
+backgroundColor="#285a9c",
+secondaryBackgroundColor="#8ada64",
+textColor="#e0ddca")
