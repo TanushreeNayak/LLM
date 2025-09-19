@@ -59,7 +59,7 @@ st.set_page_config(layout = 'wide')
 
 def main():
     st.title("Demystifying Legal Docs")
-
+    st.write("Hello, BrightStar⭐ \n Upload a PDF file and get a concise summary of its content.")
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
     
     import tempfile
@@ -67,7 +67,7 @@ def main():
     if uploaded_file is not None:
         if st.button("Summarize"):
             col1, col2 = st.columns(2)
-             # ✅ FIX: Save uploaded file safely
+             # Save the uploaded file safely
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
                 tmp_file.write(uploaded_file.getbuffer())
                 filepath = tmp_file.name
@@ -86,3 +86,4 @@ if __name__ == "__main__":
 
 
         
+
