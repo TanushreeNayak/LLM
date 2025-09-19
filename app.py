@@ -60,7 +60,7 @@ def display_pdf(file):
             background-color: #4CAF50; /* Green */
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10 20;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -108,5 +108,6 @@ if __name__ == "__main__":
 
 
         
+
 
 
