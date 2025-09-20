@@ -59,7 +59,7 @@ st.set_page_config(layout = 'wide')
 import toml
 
 # config = toml.load(".streamlit/config.toml")
-print(config["server"]["port"])
+# print(config["server"]["port"])
 
 def main():
     st.title("Demystifying Legal Docs")
@@ -90,4 +90,5 @@ if __name__ == "__main__":
 
 
         
+
 
