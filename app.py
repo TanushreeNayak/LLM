@@ -56,7 +56,11 @@ def display_pdf(file):
 
 # Streamlit app
 st.set_page_config(layout = 'wide')
-st.config.toml
+import toml
+
+config = toml.load(".streamlit/config.toml")
+print(config["server"]["port"])
+
 def main():
     st.title("Demystifying Legal Docs")
     st.write("Hello, BrtightStar⭐ Upload a PDF file and get a concise summary of its content.")
