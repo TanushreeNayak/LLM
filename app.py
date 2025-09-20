@@ -1,9 +1,9 @@
 import streamlit as st
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.chains.summarize import load_summarize_chain
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 from transformers import pipeline
+from langchain_community.document_loaders import PyPDFLoader
 import torch
 import base64
 
@@ -56,18 +56,21 @@ def display_pdf(file):
 
 # Streamlit app
 st.set_page_config(layout = 'wide')
-
+st.config.toml
 def main():
     st.title("Demystifying Legal Docs")
-
+    st.write("Hello, BrtightStar⭐ Upload a PDF file and get a concise summary of its content.")
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
-
+    
+    import tempfile
+    
     if uploaded_file is not None:
         if st.button("Summarize"):
             col1, col2 = st.columns(2)
-            filepath = "data/"+uploaded_file.name
-            with open(filepath, 'wb')as temp_file:
-                temp_file.write(uploaded_file.read())
+            #FIX: Save uploaded file safely
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+                tmp_file.write(uploaded_file.getbuffer())
+                filepath = tmp_file.name
 
             with col1:
                 st.info("Uploaded PDF File")
@@ -80,6 +83,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+
 
         
