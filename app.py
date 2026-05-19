@@ -14,7 +14,7 @@ tokenizer = T5Tokenizer.from_pretrained(checkpoint)
 base_model = T5ForConditionalGeneration.from_pretrained(
     checkpoint, 
     device_map=None,
-    torch_dtype=torch.float32,
+    dtype=torch.float32,
     offload_folder = "offload").to("cpu")
 
 # file loader and preprocessing
@@ -63,7 +63,7 @@ import toml
 
 def main():
     st.title("Demystifying Legal Docs")
-    st.write("Hello, BrtightStar⭐ Upload a PDF file and get a concise summary of its content.")
+    st.write("Hello, BrightStar⭐ Upload a PDF file and get a concise summary of its content.")
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
     
     import tempfile
